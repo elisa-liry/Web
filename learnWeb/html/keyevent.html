@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="input" value="" onkeypress="printkey(event)" />
+		<script>
+			var index = 0;
+			function printkey(e){
+				var key = String.fromCharCode(e.keyCode||e.which ); 
+				arr = ["s","d","s","d","j"];
+				var flag = true;
+				if(key!=arr[index++] ){
+					flag = false;
+				}
+				if(flag&&index == 5){
+					console.log("haoyougen");	
+				}
+				
+			}
+			
+		</script>
+	</body>
+</html>

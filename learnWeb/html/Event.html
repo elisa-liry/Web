@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 200px;
+				width: 200px;
+				border: 1px solid red;
+				/*text-align: center;*/
+				margin: auto;
+				background-image:url(img/hehe.jpg) ;
+				background-size: 100% 100%;
+				box-sizing: border-box;
+				padding-top:40px ;
+				padding-left:20px ;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+		<input type="text" id= "id1" placeholder="请输入第一个数" /><br />
+		<button onclick="hehe(this)" value="1">+ </button> 
+		<button onclick="hehe(this)" value="2">- </button>
+		<button onclick="hehe(this)" value="3">* </button>
+		<button onclick="hehe(this)" value="4">/ </button>	
+		<br />
+		<input type="text" id= "id2" placeholder="请输入第二个数"/><br />
+		<button onclick="haha()">计算</button> <br />
+		<input type="text" placeholder="计算结果" id = "id3"/><br />
+		</div>
+	</body>
+	<script>
+		var a ;
+		
+		function hehe(xixi){
+			a = parseInt(xixi.value);
+			console.log(a);
+		}
+		function haha(){
+			var  first = document.getElementById("id1");
+			var  second = document.getElementById("id2");
+			var  three = document.getElementById("id3");
+			
+			switch(a){
+				case 1:three.value=parseInt(first.value)+parseInt(second.value);
+				break;
+				case 2:three.value=parseInt(first.value)-parseInt(second.value);
+				break;
+				case 3:three.value=parseInt(first.value)*parseInt(second.value);
+				break;
+				case 4:three.value=parseInt(first.value)/parseInt(second.value);
+				break;
+				default:
+				console.log("haha");
+			}
+			
+		}
+		
+	</script>
+</html>

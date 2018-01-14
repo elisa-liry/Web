@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				border: 1px solid dodgerblue   ;
+				width: 300px;
+				height: 300px; 
+			}
+		</style>
+		<script type="text/javascript">
+			var Inputx;
+			var div1;
+			var InputY;
+			window.onload = getValue; 
+			var xx = 1;
+			
+			function print(e){	
+//				console.log(e);
+				Inputx.value= e.screenX;
+				InputY.value= e.screenY; 
+			
+			}
+			
+			function getValue(){
+				Inputx = document.getElementById("x")  ;
+				div1 = document.getElementById("div1")  ;
+				InputY = document.getElementById("y")  ;
+				console.log(Inputx.value);	
+				div1.onmousemove = print;
+//				div1.onmousemove = haha;     JS实现，但是只能实现一种
+//				div1.addEventListener("mousemove",print,false); //可以实现多种
+//				div1.addEventListener("mousemove",haha,false);
+			}
+			
+			function haha(){
+				console.log(1);
+			}
+		
+		</script>	
+	
+		
+	</head>
+	<body onmousemove="print(event)"><!-- onload="getValue()" html实现-->
+		<!---->
+		<div id = "div1" ></div>
+		<input type="text" name="" id="x" value="1" />
+		<input type="text" name="" id="y" value="2" />
+	</body>
+
+</html>

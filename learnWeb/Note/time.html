@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		时钟计时器
+		<span id="time1"></span><br />
+		<script>
+			var date;
+			function getTimes(){
+				var span1=document.getElementById("time1");
+				date =new Date();
+				var time=date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+				span1.innerHTML=time;
+			}
+			getTimes();
+			var click=setInterval(getTimes,1000);	
+//			clearInterval(click);
+
+		</script>
+		
+		用setInterval实现setTimeout
+		<span id ="time3"></span><br />
+			<script>
+				var date ;
+				var count= 0;
+				var timeout = setInterval(haha,5000);
+				function haha(){
+					console.log(count);
+					count++;
+					if(count>0){
+						clearInterval(timeout);
+					}
+				}
+			</script>
+			
+			用setTimeout实现setInterval
+			<span id ="time2"></span>
+			<script>
+			//	var intvaltime = setTimeout(getTime,1000) ;
+				var day;
+				function getTime(){
+					var span2 = document.getElementById("time2");
+					day=new Date();
+					var times = day.getHours()+":"+day.getMinutes()+":"+day.getSeconds();
+					span2.innerHTML = times;
+					intvaltime = setTimeout(getTime,1000) ;
+				}
+				getTime();
+
+//				clearTimeout(intvaltime);
+				
+			</script>
+
+	</body>
+</html>

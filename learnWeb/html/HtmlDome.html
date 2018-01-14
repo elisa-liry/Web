@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<a name = "haha" href="http://www.baidu.com">haha</a>
+		<button id = "button1" onclick="print()" >hehhee</button> 
+		<form action="" id = "form1">
+			<input type="text" name="hehe" id ="xixi"/>
+			<input type="password" />
+		</form>
+		<form action="" id = "form2"></form>
+	</body>
+</html>
+<script type="text/javascript">
+//	for(var i =0; i<document.all.length;i++){ 
+//		console.log(document.all[i]);	
+//	}
+// 	console.log(document.forms[1].id );
+ 	function print(){
+ 		console.log(document.getElementsByName("hehe")[0] );
+ 		console.log(document.getElementsByTagName("input")[0]);
+ 		console.log(document.getElementById("xixi"));
+ 		
+ 	}
+	 
+</script>
+

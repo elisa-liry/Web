@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#divmain {
+				height: 200px;
+				width: 200px;
+				border: 1px solid black;
+				text-align: center;
+				margin: auto;
+				background-size: 100% 100%;
+				box-sizing: border-box;
+				line-height: 200px;
+				
+				
+			}
+			
+			#divbottom {
+				border: 1px solid gainsboro;
+				height: 30px;
+				width: 200px;
+				margin: auto;
+				margin-top: 40px;
+				background: dodgerblue;
+				text-align: center;
+				line-height: 30px;
+				font-family: "微软雅黑";
+				color: white;
+			}
+			
+			#divbottom:active {
+				border: 1px solid gainsboro;
+				height: 30px;
+				width: 200px;
+				margin: auto;
+				margin-top: 40px;
+				background: lightskyblue;
+			}
+			span{
+				font-size: 40px;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="divmain">
+			<span id="span1"></span>
+
+		</div>
+		<div id="divbottom" onclick="start()" >点我啊</div>
+	</body>
+	<script>
+		var time ;
+		function printName() {
+			var name = ["魏邦佳", "刘兴业", "于佳鑫", "居锋", "郑媛", "郑浩", "董旭", "蔡文博", "戴鹏宇", "安敬祥", "李雪", "槐苏", "孟祥方", "王乐天", "周子寒", "史更新", "徐萌", "杜镝锋", "代云爽", "徐树", "白冰", "李丹", "符博", "林涵", "宋春波", "朱月", "于志鹏", "曲烨阳", "程飞鸣", "常鹏飞", "杜昊", "闫雷", "朱泓铭", "王松", "刘洋", "王泽昊", "李东", "杨明"];
+			var index = Math.ceil(Math.random()*name.length);
+			console.log(name[index-1]);
+			var  span = document.getElementById("span1");
+			span.innerHTML= name[index-1];
+		}
+		
+		function start(){
+			if(time){
+				clearInterval(time);
+				time = undefined;
+			}else{
+				time = setInterval(printName,20);
+			}						
+		}
+	</script>
+
+</html>

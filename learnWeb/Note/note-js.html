@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	    <script type="text/javascript" src="js/demo.js">/* js外联*/</script>
+		
+		<link rel="stylesheet" type="text/css" href=""/>
+	</head>
+	<body>
+		<button id ="click1" onclick="alert('已确认')" on>确认</button>
+		<button id="click2">编辑</button>
+		<!--<a href="javascript:void(0)">haha</a>-->
+		<script>
+//			alert(1);
+			document.write("<b>输出到当前网页</b>");
+			document.getElementById("click2").innerHTML="<em>edit</em>";
+			document.write("<br>hehehe</br>");
+			
+		</script>
+		js: 基于对象！=面向对象的语言，没有类；
+		    ECMA6：提供了Class ，extend (大部分浏览器，支持工具写)；
+		        区分大小写，从上往下执行，正常应该每句结尾+;
+		        
+		代码引入方式：内嵌，外联，事件，超链接
+		输出：document.write; console.log ;  alert();  innerHTML
+		
+		弱类型： 声明变量 通过 var 变量名;
+		js 数据类型：
+		基本数据类型：
+				数字类型：不区分浮点和整数
+					           支持10进制，8进制，16进制
+					           特殊值：NaN(不是数字)
+					             　　　   Infinity（无限大）
+				字符类型：不区分字符和字符串
+				布尔类型：true false
+				未定义：    undefined	
+		字符类型：
+				不区分字符串和字符 ，单引号和双引号都行；  " xxxxx  ' ' xxxx"
+		布尔类型：
+				true false  (特别狠的隐式转换)
+		未定义类型：undifined
+				
+		复合数据类型：
+			对象：
+				系统对象：
+						api:Number(包装类)
+							String
+							Boolean
+							Math
+							Date
+				自定义对象：
+				数组：Array
+				函数：function；
+			        特殊值：null
+		
+		js对象只有六种：数字，字符串，布尔，对象，undefined，null；
+		
+		动态语言+弱类型语言
+		var 变量名；
+		let 变量名; （ECMA6）
+		var a; // a  undifined null
+		ECMA5里没有常量:行业默认大写的变量为常量；  ECMA6 有常量:  constructor.name;
+		
+		数据类型  变量名：
+		数据类型的转换：
+			显示转换：
+				基本数据类型转换：
+					布尔：
+					    Boolean(): 
+						转成true:Infinity,"true","false"，其他
+						   false:undefined,null,NaN,0,空字符串，字符串长度为0
+					数字：
+						Number():"Infinity","true",true,false,undefined,null,NaN,空字符串，字符串长度为0,只含有数字的字符串，
+							转成数字："Infinity"(Infinity),true(1),false(0),null(0),空字符串(0),字符串长度为0，只含有数字的字符串（该多少是多少）
+							转成NAN："true",undefined,NaN，含有字母的数字字符串
+					字符串：String():都变成对应内容的字符串
+					
+			隐式转换：算数运算容易触发Number();比较（先算数在比较）和逻辑运算容易触发Boolean()，+号两边有字符串容易触发String();
+						
+					
+		
+		如何区分数据类型？
+			1. typeof  数据 ： 返回类型字符串 （基本数据类型）
+				              问题：1.无法区分null 和Object ， 对于对象无法区分
+			2. instanceof  判断前面数据是否属于后面类型， 前提是必须知道是哪种类型， 父对象和子对象无法区分;
+			
+			3. 基于原型链   可以判断所有的系统对象
+			   Object.prototype.toString.apply(new Object())；
+		
+			4.利用构造器  区分自定义(可以替代3，功能更强)
+			   obj.constructor.name
+			   
+	
+		
+		js 运算符：
+		
+		= 是赋值运算；
+		== 是 值 比较 ；
+		=== 是类型和值一起比较；
+		
+		"字符串"-0 //如果可以强转数字 ，把字符串转成数字
+		+ 有字符串全转成字符串
+		
+		||  和  &amp;&amp;  <!--&&--> 
+		如果两边结果是布尔值，则跟java差不多；短位功能
+		但是如果两边的结果不是布尔值，则会出现以下情况：
+		<!--&&--> ：如果前面的值为经过隐式转换后为true ，则一定返回后面的值
+				          如果前面的值经过转换后为false,则一定返回前面的值
+			   || ：如果前面的值经过隐式转换后为true，则一定返回前面的值
+				           如果前面的值经过隐式转换后为false，则一定返回后面的值
+			
+		|  和 &amp;  <!--&-->：直接做按位运算。
+		
+		判断NaN的时候需要利用isNaN函数(例：isNaN("bdhb123"))，但是需要额外注意undifined；
+		
+		void(0);
+		<a href="javascript:void(0);" >baidu</a>-->
+		
+		流程控制：
+			switch语句的值可以是任意类型
+			for 语句 :for循环内声明的var 变量属于全局变量，没有块变量一说（除：ECMA6 let）；
+			
+			增强for循环：例
+			var a = [1,2,3,4,5];
+				for (var i in )a {
+					console.log(a[i]);
+				}
+	
+		函数：
+			创建函数两种方式：
+			函数的声明：
+					function 函数名字(参数列表[没有数据类型]){
+						return 1; //可以有多个return 只返回第一个	 ,代码块
+					}
+			函数表达式：
+					var 变量(函数)名字 = function(参数列表[没有数据类型]){
+						return 1;   //代码块
+					}
+					
+					function (){ } //没有名字的函数叫匿名函数；
+					匿名函数的调用
+					（function(形参){代码块} (实参)）;
+					
+					var a =  匿名函数
+					
+			表达式和声明的区别：声明可以先调用后创建；表达式 不可以。
+			
+			高级函数/回调函数：
+			function f(a,b){
+				return a()+b();
+			};
+			
+			f(function(){return 1;},function(){return 2;});-->
+			
+			通过匿名函数调用回调函数
+			
+			function fa(){
+				return 1;
+			}
+			function fb(){
+				return 2;
+			}
+			f(fa,fb);
+			
+		js内置对象：所有函数都拥有一个自己的属性这个属性等于一个arguments对象
+		
+		js的常用内置函数：isNaN,isFinite,alert,parseInt,Number(),Boolean(),String(),
+		        parseFloat, confirm,prompt,encodeURI,decodeURI,encodeURICompotent(),
+				eval();
+				
+			例：地址互转：
+				encodeURI("http://www.baidu.com/梦游");
+				decodeURI(http://www.baidu.com/%E6%A2%A6%E6%B8%B8);
+				
+				内容互转：
+				document.write(encodeURIComponent("梦+—%……"));
+				document.write(decodeURIComponent("%E6%A2%A6%2B%E2%80%94%25%E2%80%A6%E2%80%A6"));	
+		
+		js的自定义函数:例
+				
+		js计时器：	
+			setInterVal ,setTimeout			
+			var a = setInterVal ;clearInterVal(a);
+			
+			var obj1 = new Object();
+			var obj2 = {};
+			对象的常见操作： . 没有则添加，有则调用（属性或方法）
+			                delete 删除属性
+			                in  判断是否存在该属性 （其实有问题）
+			
+			var student = {name:"wangsong", 
+							age:18,
+							sex:0,
+							hehe:function(){
+								console.log("hehe");
+							}
+						teacher:{
+									name:"jin",
+									sex:1,
+									haha:function(){
+										
+									}
+								}							
+						};
+		面向对象的23种设计模式之一：
+		工厂模式	：	
+			function createStudent(name,age,teacher){
+				var o = new Object();
+				o.name = name;
+				o.age = age;
+				o.teacher = teacher;
+				return o;
+			}	
+			var teacher1 = {teacherid:1}
+			var student1 = createStudent("haha",18,teacher1);
+			var student2 = createStudent("hehe",19,teacher1);
+			
+		通过构造器来创建对象：
+			function Student(name,age,hello){
+				this.name=name;
+				this.age = age;
+				this.hello = hello;
+			}
+			var s1 = new Student("haha",18,function(){console.log("hello")});
+		基于原型链：
+			function Person(name,age){this.name=name ;this.age = age};
+			Person.prototype.hello = function (){console.log("hello")};
+			
+
+		
+	</body>
+
+</html>
+	

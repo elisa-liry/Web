@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<span id="time1"></span>
+		<script>
+			var timeout=setTimeout(getTime,1000);
+			function getTime(){
+				var span=document.getElementById("time1");
+				date =new Date();
+				var time=date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+				span.innerHTML=time;
+				timeout=setTimeout(getTime,1000);
+			}
+			getTime();
+			clearTimeout(timeout);
+		</script>
+		
+		<span id="functions"></span>
+		<script>
+//			var speak=function(){
+//				console.log("hello word!");
+//				return function(){
+//					console.log("welcome ");
+//				}
+//			}
+//		speak=speak(); 
+//		speak();
+		
+//		document.write(encodeURI('http://www.baidu.com/梦游'));
+		document.write(encodeURIComponent("梦+—%……"));
+		document.write(decodeURIComponent("%E6%A2%A6%2B%E2%80%94%25%E2%80%A6%E2%80%A6"));	
+		parseInt("123");	
+			
+		</script>
+	</body>
+</html>

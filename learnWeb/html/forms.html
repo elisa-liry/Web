@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="index.html" method="post">
+			email:<input type="text" name="email" onblur="checkMail()"><span></span><br />
+			<input type="checkbox" name="aihao"  value="1"/>篮球 <br />
+			<input type="checkbox" name="aihao"  value="2"/>足球 <br />
+			<input type="checkbox" name="aihao"  value="3"/>羽毛球 <br />
+			<input id= "checkboxmain" onclick="idchecked()" type="checkbox" name="aihao"  value="4"/>
+			全选 <br>
+			
+			省份：<select name="">
+					<option value="">辽宁</option>
+					<option value="">吉林</option>
+				</select>
+			城市：<select>
+					<option value="">沈阳</option>
+					<option value="">大连</option>
+			</select>
+			<button type="submit">提交</button>
+		</form>
+	</body>
+	<script type="text/javascript">
+		function checkMail(){
+			var email = document.getElementsByTagName("input")[0];
+			var reg = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/g;
+//			console.log(reg.test(email.value));
+			if(reg.test(email.value) ==false){
+				email.nextSibling.innerHTML = "你是不是傻，这都能错！赶紧改";
+				email.nextSibling.style.height="14px";
+				email.nextSibling.style.width="100px";
+				email.nextSibling.style.backgroundColor="green";
+				email.nextSibling.style.fontSize="14px";
+				email.nextSibling.style.fontFamily="微软雅黑";
+				email.nextSibling.style.fontStyle="Italic";
+				email.nextSibling.style.color="white";
+			}else{
+				email.nextSibling.innerHTML = "Ok";
+			}
+		}
+		function idchecked(){
+			var main = document.getElementById("checkboxmain");
+			var check = document.getElementsByName("aihao");
+			for(var i = 0 ;i<check.length-1;i++){
+				check[i].checked = main.checked; 
+			}
+		}
+	</script>
+</html>
